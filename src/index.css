@@ -1,0 +1,252 @@
+@import "@fontsource/montserrat/400.css";
+@import "@fontsource/montserrat/500.css";
+@import "@fontsource/montserrat/600.css";
+@import "@fontsource/montserrat/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* DRIPENOMICS Design System */
+@layer base {
+  :root {
+    /* Brand Colors - Editorial Minimalism */
+    --background: 0 0% 100%;
+    --background-cream: 40 14% 94%;
+    --foreground: 0 0% 0%;
+
+    --card: 40 14% 94%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 14% 94%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 40 14% 94%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 40 14% 94%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 0%;
+
+    --radius: 0px;
+
+    /* Brand-specific tokens */
+    --brand-white: 0 0% 100%;
+    --brand-cream: 40 14% 94%;
+    --brand-black: 0 0% 0%;
+    --brand-gray: 0 0% 45%;
+    --brand-teal: 193 58% 35%;
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Shadows */
+    --shadow-subtle: 0 2px 20px rgba(0, 0, 0, 0.05);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.08);
+
+    /* Sidebar (kept for compatibility) */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 40 14% 94%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 0 0% 0%;
+  }
+
+  .dark {
+    --background: 0 0% 5%;
+    --background-cream: 0 0% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 95%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 80%;
+
+    --brand-white: 0 0% 100%;
+    --brand-cream: 0 0% 10%;
+    --brand-black: 0 0% 95%;
+    --brand-gray: 0 0% 55%;
+    --brand-teal: 193 58% 45%;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 0 0% 100%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 0 0% 80%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat antialiased;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-montserrat tracking-wide;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  /* Text alignment as per guidelines */
+  .text-justified {
+    text-align: justify;
+  }
+
+  /* Brand letterform spacing */
+  .brand-title {
+    @apply tracking-[0.3em] uppercase font-medium;
+  }
+
+  .brand-subtitle {
+    @apply tracking-[0.15em] uppercase text-sm;
+  }
+}
+
+@layer components {
+  /* Editorial image treatments */
+  .editorial-image {
+    @apply relative overflow-hidden;
+  }
+
+  .editorial-image img {
+    @apply transition-transform duration-700 ease-out;
+  }
+
+  .editorial-image:hover img {
+    @apply scale-105;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-8 py-4 tracking-widest uppercase text-xs font-medium transition-all duration-300 hover:opacity-80;
+  }
+
+  .btn-outline {
+    @apply border border-foreground bg-transparent text-foreground px-8 py-4 tracking-widest uppercase text-xs font-medium transition-all duration-300 hover:bg-foreground hover:text-background;
+  }
+
+  /* Product card hover */
+  .product-card {
+    @apply transition-all duration-300;
+  }
+
+  .product-card:hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  /* Video container */
+  .video-hero {
+    @apply relative w-full h-screen overflow-hidden;
+  }
+
+  .video-hero video {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .video-overlay {
+    @apply absolute inset-0 bg-black/20;
+  }
+}
+
+@layer utilities {
+  /* Fade animations */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Stagger delays */
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+}
